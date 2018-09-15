@@ -1,0 +1,13 @@
+{
+  "token": "VFwfXGFVOLfuz70DcxCfEx2c",
+  "team_id": "TCU4F0L84",
+  "team_domain": "dylanrevisited",
+  "channel_id": "CCTNMBCTT",
+  "channel_name": "general",
+  "user_id": "UCUAC5CLS",
+  "user_name": "daniel_guerra",
+  "command": "/remiko",
+  "text": "brb",
+  "response_url": "https://hooks.slack.com/commands/TCU4F0L84/435641486512/DcEwrq08To4NVvGytNtEclkK",
+  "trigger_id": "436535802549.436151020276.790d1b4c78f90c0bccd4d02c0840c1a0"
+}

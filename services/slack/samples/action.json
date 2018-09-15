@@ -1,0 +1,73 @@
+{
+  "type": "interactive_message",
+  "actions": [
+    {
+      "name": "status_update_menu",
+      "type": "select",
+      "selected_options": [
+        {
+          "value": "lunch"
+        }
+      ]
+    }
+  ],
+  "callback_id": "status_update",
+  "team": {
+    "id": "TCU4F0L84",
+    "domain": "dylanrevisited"
+  },
+  "channel": {
+    "id": "CCTNMBCTT",
+    "name": "general"
+  },
+  "user": {
+    "id": "UCUAC5CLS",
+    "name": "daniel_guerra"
+  },
+  "action_ts": "1537035989.493150",
+  "message_ts": "1537035986.000200",
+  "attachment_id": "1",
+  "token": "VFwfXGFVOLfuz70DcxCfEx2c",
+  "is_app_unfurl": false,
+  "original_message": {
+    "text": "Hello :slightly_smiling_face:",
+    "bot_id": "BCVC2167R",
+    "attachments": [
+      {
+        "callback_id": "status_update",
+        "fallback": "Update your status",
+        "text": "Update your status",
+        "id": 1,
+        "color": "2c963f",
+        "actions": [
+          {
+            "id": "1",
+            "name": "status_update_menu",
+            "text": "Choose your status update",
+            "type": "select",
+            "data_source": "static",
+            "options": [
+              {
+                "text": "PTO",
+                "value": "pto"
+              },
+              {
+                "text": "Out 4 lunch",
+                "value": "lunch"
+              },
+              {
+                "text": "Be right back",
+                "value": "brb"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "subtype": "bot_message",
+    "ts": "1537035986.000200"
+  },
+  "response_url": "https:\\/\\/hooks.slack.com\\/actions\\/TCU4F0L84\\/435807698865\\/eWiUerrku47EyyTi0GKalw3b",
+  "trigger_id": "435663348112.436151020276.79c57ac66a52bfeccb1a35dbe94454e5"
+}
