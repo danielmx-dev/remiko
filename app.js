@@ -2,9 +2,12 @@
 
 const path = require('path')
 const AutoLoad = require('fastify-autoload')
+const formbody = require('fastify-formbody')
 
 module.exports = function (fastify, opts, next) {
   // Place here your custom code!
+
+  fastify.register(formbody)
 
   // Do not touch the following lines
 
