@@ -7,9 +7,9 @@
     "test": "standard && tap test/*.test.js test/*/*.test.js test/*/*/*.test.js",
     "start": "fastify start -l info app.js",
     "start:heroku": "node server",
-    "dev": "fastify start -l info -P app.js",
+    "dev": "fastify start -l info -P app.js -w",
     "lint": "standard --fix",
-    "deploy:heroku": "git push heroku master"
+    "deploy:heroku": "git push heroku master -f"
   },
   "keywords": [],
   "author": "",
