@@ -2,6 +2,8 @@
 
 const commandSchema = require('./schema/command')
 const actionSchema = require('./schema/action')
+const axios = require('axios')
+const config = require('../../config')
 
 module.exports = async function (fastify, opts) {
   const commandOpts = {
@@ -23,23 +25,20 @@ module.exports = async function (fastify, opts) {
         attachment_type: 'default',
         callback_id: 'status_update',
         actions: [{
-          name: 'status_update_menu',
-          text: 'Choose your status update',
-          type: 'select',
-          options: [
-            {
-              text: 'PTO',
-              value: 'pto'
-            },
-            {
-              text: 'Out 4 lunch',
-              value: 'lunch'
-            },
-            {
-              text: 'Be right back',
-              value: 'brb'
-            }
-          ]
+          name: 'update',
+          text: 'PTO',
+          type: 'button',
+          value: 'pto'
+        }, {
+          name: 'update',
+          text: 'BRB',
+          type: 'button',
+          value: 'brb'
+        }, {
+          name: 'update',
+          text: 'Out4lunch',
+          type: 'button',
+          value: 'lunch'
         }]
       }]
     }
@@ -54,6 +53,22 @@ module.exports = async function (fastify, opts) {
   fastify.post('/slack/actions', actionOpts, async (request, reply) => {
     const slackRequestMessage = JSON.parse(request.body.payload)
     if (slackRequestMessage.callback_id === 'status_update') {
+      const statusUpdateResponse = await axios({
+        method: 'POST',
+        url: 'https://slack.com/api/users.profile.set',
+        headers: {
+          'Authorization': `Bearer ${config.token}`
+        },
+        data: {
+          'profile': {
+            'status_text': 'riding a train',
+            'status_emoji': ':mountain_railway:',
+            'status_expiration': 0
+          }
+        }
+      })
+      fastify.log.info(statusUpdateResponse.status)
+      fastify.log.info(statusUpdateResponse.data)
       return {
         response_type: 'in_channel',
         text: `*Your status was updated*`,
