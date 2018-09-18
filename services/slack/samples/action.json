@@ -3,12 +3,8 @@
   "actions": [
     {
       "name": "status_update_menu",
-      "type": "select",
-      "selected_options": [
-        {
-          "value": "lunch"
-        }
-      ]
+      "type": "button",
+      "value": "pto"
     }
   ],
   "callback_id": "status_update",

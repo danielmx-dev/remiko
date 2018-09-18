@@ -53,15 +53,24 @@ module.exports = async function (fastify, opts) {
         statusText,
         statusEmoji
       } = actionsMap[selected]
-      const statusUpdateResponse = await SlackApi.setProfile({
-        profile: {
-          status_text: statusText,
-          status_emoji: statusEmoji,
-          status_expiration: 0
+
+      const profile = await SlackApi.readProfile({
+        query: {
+          user: slackRequestMessage.user.id
         }
       })
-      fastify.log.info(statusUpdateResponse.status)
-      fastify.log.info(statusUpdateResponse.data)
+
+      request.log.info('User Profile', profile)
+
+      await SlackApi.setProfile({
+        data: {
+          profile: {
+            status_text: statusText,
+            status_emoji: statusEmoji,
+            status_expiration: 0
+          }
+        }
+      })
       return {
         response_type: 'in_channel',
         text: `*Your status was updated*`,
