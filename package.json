@@ -7,7 +7,7 @@
     "test": "standard && tap test/*.test.js test/*/*.test.js test/*/*/*.test.js",
     "start": "fastify start -l info app.js",
     "start:heroku": "node server",
-    "dev": "fastify start -l info -P app.js -w",
+    "dev": "PORT=8001 fastify start -l info -P app.js -w",
     "lint": "standard --fix",
     "deploy:heroku": "git push heroku master -f"
   },
